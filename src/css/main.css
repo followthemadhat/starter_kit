@@ -1,0 +1,93 @@
+/* Import SASS Files */
+/* Put All Variables Here */
+/* Put All Fonts Here */
+/* Import Libs SASS/CSS */
+/* General Project Styles */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+body {
+  position: relative;
+  display: block;
+  overflow-x: hidden;
+  min-width: 320px;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6; }
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+
+*:focus {
+  outline: none; }
+
+.clearfix::after {
+  display: table;
+  clear: both;
+  content: ''; }
+
+.hidden {
+  display: none; }
+
+.hr-clear {
+  clear: both;
+  padding: 15px 0;
+  border: 0; }
+
+.no-borders {
+  border: 0; }
+
+*::-webkit-input-placeholder {
+  color: #666;
+  opacity: 1; }
+
+*:-moz-placeholder {
+  color: #666;
+  opacity: 1; }
+
+*::-moz-placeholder {
+  color: #666;
+  opacity: 1; }
+
+*:-ms-input-placeholder {
+  color: #666;
+  opacity: 1; }
+
+body input:focus:required:invalid, body textarea:focus:required:invalid {
+  color: #666; }
+
+body input:required:valid, body textarea:required:valid {
+  color: #666; }
+
+/* Custom Styles Here */
+/* ALWAYS END */
+/*==========  Desktop First Method  ========== */
+/* Large Devices, Wide Screens */
+/* Medium Devices, Desktops */
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  /*Disable Animation on Mobile Devices */
+  .animated {
+    -webkit-transition-property: none !important;
+    /*CSS transitions */
+    transition-property: none !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    /*CSS transforms */
+    transform: none !important;
+    /*CSS animations */
+    -webkit-animation: none !important;
+    animation: none !important; } }
+
+/* Extra Small Devices, Phones */
+/* Custom, iPhone Retina */
+/*==========  Mobile First Method  ========== */
+/* Custom, iPhone Retina */
+/* Extra Small Devices, Phones */
+/* Small Devices, Tablets */
+/* Medium Devices, Desktops */
+/* Large Devices, Wide Screens */
