@@ -80,13 +80,16 @@ gulp.task('build', ['clean', 'styles', 'scripts', 'images'], function() {
   // gulp.src('src/fonts/**/*')
   // .pipe(gulp.dest('build/fonts'))
 
-  gulp.src('src/js/*')
+  gulp.src([
+    'src/js/libs.min.js',
+    'src/js/common.js'
+    ])
   .pipe(concat('main.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest('build/js'));
 
   gulp.src('src/*.html')
-  .pipe(useref())
+  .pipe(useref({noAssets:true}))
   .pipe(gulp.dest('build'));
 
 });
