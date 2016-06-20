@@ -45,6 +45,10 @@ ul, li {
   border: 0;
 }
 
+.no-float {
+  float: none !important;
+}
+
 /* Placeholder styles */
 
 *::-webkit-input-placeholder {
