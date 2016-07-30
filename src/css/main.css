@@ -1,11 +1,23 @@
-/* Import SASS Files */
+/* Import Libs SASS/CSS */
+/* Import Project Styles */
 /* Put All Variables Here */
 /* Put All Fonts Here */
-/* Import Libs SASS/CSS */
+/* Typography */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0;
+  padding: 0; }
+
+p {
+  margin: 0;
+  padding: 0; }
+
 /* General Project Styles */
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
+
+*:focus {
+  outline: none; }
 
 body {
   position: relative;
@@ -17,14 +29,7 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6; }
 
-ul, li {
-  margin: 0;
-  padding: 0;
-  list-style-type: none; }
-
-*:focus {
-  outline: none; }
-
+/* Helper classes */
 .clearfix::after {
   display: table;
   clear: both;
@@ -33,14 +38,13 @@ ul, li {
 .hidden {
   display: none; }
 
-.hr-clear {
-  clear: both;
-  padding: 15px 0;
-  border: 0; }
-
 .no-borders {
   border: 0; }
 
+.no-float {
+  float: none !important; }
+
+/* Placeholder styles */
 *::-webkit-input-placeholder {
   color: #666;
   opacity: 1; }
@@ -57,19 +61,25 @@ ul, li {
   color: #666;
   opacity: 1; }
 
-body input:focus:required:invalid, body textarea:focus:required:invalid {
+input:focus:required:invalid,
+textarea:focus:required:invalid {
   color: #666; }
 
-body input:required:valid, body textarea:required:valid {
+input:required:valid,
+textarea:required:valid {
   color: #666; }
 
-/* Custom Styles Here */
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+
 /* ALWAYS END */
 /*==========  Desktop First Method  ========== */
 /* Large Devices, Wide Screens */
 /* Medium Devices, Desktops */
 /* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
   /*Disable Animation on Mobile Devices */
   .animated {
     -webkit-transition-property: none !important;

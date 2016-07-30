@@ -1,11 +1,15 @@
-/* Import SASS Files */
+/* Import Libs SASS/CSS */
+
+/* Import Project Styles */
+
 @import "vars";
 @import "fonts";
 @import "general";
 
-/* Import Libs SASS/CSS */
-
-/* Custom Styles Here */
+@import "modules/buttons.scss";
+@import "modules/forms.scss";
+@import "modules/inputs.scss";
+@import "modules/lists.scss";
 
 /* ALWAYS END */
 @import "media";
