@@ -67,7 +67,12 @@ gulp.task('images', function() {
     .pipe(gulp.dest('build/img'));
 });
 
-gulp.task('build', ['clean', 'styles', 'scripts', 'images'], function() {
+gulp.task('fonts', function() {
+  return gulp.src('src/fonts/**/*')
+    .pipe(gulp.dest('build/fonts/'));
+});
+
+gulp.task('build', ['clean', 'styles', 'scripts', 'images', 'fonts'], function() {
 
   gulp.src([
     'src/css/main.css'
