@@ -1,16 +1,4 @@
-/* Import Libs SASS/CSS */
-/* Import Project Styles */
-/* Put All Variables Here */
 /* Put All Fonts Here */
-/* Typography */
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin: 0;
-  padding: 0; }
-
-p {
-  margin: 0;
-  padding: 0; }
-
 /* General Project Styles */
 * {
   -webkit-box-sizing: border-box;
@@ -29,20 +17,19 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6; }
 
-/* Helper classes */
-.clearfix::after {
-  display: table;
-  clear: both;
-  content: ''; }
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
 
-.hidden {
-  display: none; }
+/* Typography */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0;
+  padding: 0; }
 
-.no-borders {
-  border: 0; }
-
-.no-float {
-  float: none !important; }
+p {
+  margin: 0;
+  padding: 0; }
 
 /* Placeholder styles */
 *::-webkit-input-placeholder {
@@ -69,15 +56,35 @@ input:required:valid,
 textarea:required:valid {
   color: #666; }
 
-ul, li {
-  margin: 0;
-  padding: 0;
-  list-style-type: none; }
+/* Helper classes */
+.clearfix::after {
+  display: table;
+  clear: both;
+  content: ''; }
 
+.hidden {
+  display: none; }
+
+.visible {
+  display: block; }
+
+.no-borders {
+  border: 0; }
+
+.no-float {
+  float: none; }
+
+/* Import Libs SASS/CSS */
 /* ALWAYS END */
 /*==========  Desktop First Method  ========== */
 /* Large Devices, Wide Screens */
+@media (max-width: 1200px) {
+  /* */ }
+
 /* Medium Devices, Desktops */
+@media (max-width: 992px) {
+  /* */ }
+
 /* Small Devices, Tablets */
 @media (max-width: 768px) {
   /*Disable Animation on Mobile Devices */
@@ -94,10 +101,30 @@ ul, li {
     animation: none !important; } }
 
 /* Extra Small Devices, Phones */
+@media (max-width: 480px) {
+  /* */ }
+
 /* Custom, iPhone Retina */
+@media (max-width: 320px) {
+  /* */ }
+
 /*==========  Mobile First Method  ========== */
 /* Custom, iPhone Retina */
+@media (min-width: 320px) {
+  /* */ }
+
 /* Extra Small Devices, Phones */
+@media (min-width: 480px) {
+  /* */ }
+
 /* Small Devices, Tablets */
+@media (min-width: 768px) {
+  /* */ }
+
 /* Medium Devices, Desktops */
+@media (min-width: 992px) {
+  /* */ }
+
 /* Large Devices, Wide Screens */
+@media (min-width: 1200px) {
+  /* */ }

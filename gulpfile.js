@@ -35,8 +35,7 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
   return gulp.src([
-    'src/libs/jquery/dist/jquery.min.js',
-    'src/libs/modernizr/modernizr-custom.js'
+    'src/libs/jquery/dist/jquery.min.js'
     ])
     .pipe(plumber())
     .pipe(concat('libs.min.js'))
