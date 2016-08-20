@@ -1,4 +1,5 @@
 /* Put All Fonts Here */
+/* Import Libs SASS/CSS */
 /* General Project Styles */
 * {
   -webkit-box-sizing: border-box;
@@ -74,7 +75,6 @@ textarea:required:valid {
 .no-float {
   float: none; }
 
-/* Import Libs SASS/CSS */
 /* ALWAYS END */
 /*==========  Desktop First Method  ========== */
 /* Large Devices, Wide Screens */

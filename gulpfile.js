@@ -12,7 +12,8 @@ var gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css'),
     uncss = require('gulp-uncss'),
     uglify = require('gulp-uglify'),
-    useref = require('gulp-useref');
+    useref = require('gulp-useref'),
+    bourbon = require('node-bourbon');
 
 gulp.task('browser-sync', function() {
   browserSync({
@@ -26,7 +27,9 @@ gulp.task('browser-sync', function() {
 gulp.task('styles', function() {
   return gulp.src('src/sass/main.scss')
     .pipe(plumber())
-    .pipe(sass())
+    .pipe(sass({
+      includePaths: bourbon.includePaths
+    }).on('error', sass.logError))
     //.pipe(uncss({ html: '*.html' }))
     .pipe(autoprefixer({ browsers: ['last 15 versions', '> 1%', 'ie 9'], cascade: true }))
     .pipe(gulp.dest('src/css'))
