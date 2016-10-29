@@ -84,9 +84,6 @@ gulp.task('build', ['clean', 'styles', 'scripts', 'images', 'fonts'], function()
   .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest('build/css'));
 
-  // gulp.src('src/fonts/**/*')
-  // .pipe(gulp.dest('build/fonts'))
-
   gulp.src([
     'src/js/libs.min.js',
     'src/js/common.js'
