@@ -74,7 +74,12 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest('build/fonts/'));
 });
 
-gulp.task('build', ['clean', 'styles', 'scripts', 'images', 'fonts'], function() {
+gulp.task('assets', function() {
+  return gulp.src('src/assets/**/*')
+    .pipe(gulp.dest('build/assets/'));
+});
+
+gulp.task('build', ['clean', 'styles', 'scripts', 'images', 'fonts', 'assets'], function() {
 
   gulp.src([
     'src/css/main.css'
