@@ -4,15 +4,19 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   position: relative;
   display: block;
-  overflow-x: hidden;
   min-width: 320px;
+  background-color: #fff;
   font-weight: 400;
   font-size: 16px;
   font-family: Arial, sans-serif;
-  line-height: 1.6;
+  line-height: 1.4;
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
