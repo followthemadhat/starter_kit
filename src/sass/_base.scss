@@ -29,6 +29,12 @@ ul, li {
   list-style-type: none;
 }
 
+/* Hack for Chrome to not stretch img */
+
+img {
+  align-self: center;
+}
+
 /* Helper classes */
 
 .clearfix::after {
