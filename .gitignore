@@ -3,6 +3,6 @@ build/
 src/css/
 misc/
 designs/
-backup/
+backups/
 versions/
 .DS_Store
