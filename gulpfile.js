@@ -13,7 +13,8 @@ var gulp = require('gulp'),
     uncss = require('gulp-uncss'),
     uglify = require('gulp-uglify'),
     useref = require('gulp-useref'),
-    bourbon = require('node-bourbon');
+    bourbon = require('node-bourbon'),
+    fileinclude = require('gulp-file-include');
 
 gulp.task('browser-sync', function() {
   browserSync({
@@ -28,7 +29,8 @@ gulp.task('styles', function() {
   return gulp.src('src/sass/main.scss')
     .pipe(plumber())
     .pipe(sass({
-      includePaths: bourbon.includePaths
+      includePaths: bourbon.includePaths,
+      outputStyle: 'expanded'
     }).on('error', sass.logError))
     //.pipe(uncss({ html: '*.html' }))
     .pipe(autoprefixer({ browsers: ['last 15 versions', '> 1%', 'ie 9'], cascade: true }))
