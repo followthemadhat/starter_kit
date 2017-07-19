@@ -14,7 +14,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     useref = require('gulp-useref'),
     bourbon = require('node-bourbon'),
-    fileinclude = require('gulp-file-include');
+    fileinclude = require('gulp-file-include'),
+    replace = require('gulp-replace');
 
 gulp.task('browser-sync', function() {
   browserSync({
@@ -65,6 +66,7 @@ gulp.task('images', function() {
     .pipe(imagemin({
       interlaced: true,
       progressive: true,
+      optimizationLevel: 5,
       svgoPlugins: [{removeViewBox: false}],
       use: [pngquant()]
     }))
@@ -87,6 +89,8 @@ gulp.task('build', ['clean', 'styles', 'scripts', 'images', 'fonts', 'assets'], 
     'src/css/main.css'
     ])
   //.pipe(uncss({ html: '*.html' }))
+  // .pipe(replace('url("../fonts/', 'url("fonts/')) /* IF WORDPRESS */
+  // .pipe(replace('url(../img/', 'url(img/')) /* IF WORDPRESS */
   .pipe(cleanCSS({compatibility: 'ie9'}))
   .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest('build/css'));
