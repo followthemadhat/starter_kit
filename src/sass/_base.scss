@@ -48,11 +48,15 @@ img {
 }
 
 .no-borders {
-  border: 0;
+  border: none !important;
 }
 
 .no-float {
-  float: none;
+  float: none !important;
+}
+
+.no-padding {
+  padding: 0 !important;
 }
 
 .text-left {
