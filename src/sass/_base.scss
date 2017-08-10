@@ -55,7 +55,7 @@ img {
   float: none !important;
 }
 
-.no-padding {
+.p0 {
   padding: 0 !important;
 }
 
@@ -85,4 +85,10 @@ img {
 
   justify-content: center;
   align-items: center;
+}
+
+.eqh {
+  display: flex;
+
+  flex-wrap: wrap;
 }
