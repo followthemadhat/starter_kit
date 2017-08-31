@@ -83,6 +83,17 @@ gulp.task('assets', function() {
     .pipe(gulp.dest('build/assets/'));
 });
 
+// File include task
+
+gulp.task('html', function() {
+  gulp.src(['src/html/*.html'])
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    .pipe(gulp.dest('src/'));
+});
+
 gulp.task('build', ['clean', 'styles', 'scripts', 'images', 'fonts', 'assets'], function() {
 
   gulp.src([
