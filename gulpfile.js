@@ -49,9 +49,22 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('src/js'));
 });
 
+// File include task
+
+// gulp.task('html', function() {
+//   gulp.src(['src/html/*.html'])
+//     .pipe(fileinclude({
+//       prefix: '@@',
+//       basepath: '@file'
+//     }))
+//     .pipe(gulp.dest('src'))
+//     .pipe(browserSync.reload({stream: true}));
+// });
+
 gulp.task('watch', ['styles', 'scripts', 'browser-sync'], function() {
   gulp.watch('src/sass/**/*.+(sass|scss)', ['styles']);
   gulp.watch('src/*.html', browserSync.reload);
+  // gulp.watch('src/**/*.html', ['html'], browserSync.reload); /* IF FILEINCLUDE */
   gulp.watch('src/js/**/*.js', browserSync.reload);
 });
 
@@ -81,17 +94,6 @@ gulp.task('fonts', function() {
 gulp.task('assets', function() {
   return gulp.src('src/assets/**/*')
     .pipe(gulp.dest('build/assets/'));
-});
-
-// File include task
-
-gulp.task('html', function() {
-  gulp.src(['src/html/*.html'])
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: '@file'
-    }))
-    .pipe(gulp.dest('src/'));
 });
 
 gulp.task('build', ['clean', 'styles', 'scripts', 'images', 'fonts', 'assets'], function() {
