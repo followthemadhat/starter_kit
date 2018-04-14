@@ -4,13 +4,8 @@
 @import "libs";
 @import "base";
 
-@import "modules/sections";
-@import "modules/header";
-@import "modules/footer";
-@import "modules/buttons";
-@import "modules/forms";
-@import "modules/popups";
-@import "modules/typography";
+@import "modules/*";
+@import "pages/*";
 
 /* ALWAYS END */
 @import "media";

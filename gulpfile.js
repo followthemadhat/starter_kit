@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
+    sassGlob = require('gulp-sass-glob'),
     browserSync = require('browser-sync'),
     concat = require('gulp-concat'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -27,6 +28,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('styles', function() {
   return gulp.src('src/sass/main.scss')
+    .pipe(sassGlob())
     .pipe(plumber())
     .pipe(sass().on('error', sass.logError))
     //.pipe(uncss({ html: '*.html' }))
