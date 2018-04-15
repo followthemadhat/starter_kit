@@ -1,0 +1,36 @@
+{
+  "name": "Project",
+  "description": "Project Description",
+  "main": "bower.json",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/libs",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "clamp.js": "*",
+    "bxslider-4": "^4.2.14",
+    "bootstrap": "^4.1.0",
+    "animate.css": "^3.5.2",
+    "flexslider": "FlexSlider#^2.7.0",
+    "flexboxgrid": "^6.3.2",
+    "font-awesome": "^5.0.10",
+    "jQuery.dotdotdot": "dotdotdot#^3.2.2",
+    "matchHeight": "matchheight#^0.7.2",
+    "modernizr": "^3.6.0",
+    "magnific-popup": "^1.1.0",
+    "normalize.css": "^8.0.0",
+    "swiper": "^4.2.2",
+    "owl.carousel": "^2.3.3",
+    "slick-carousel": "^1.8.1",
+    "tether": "^1.4.0",
+    "waypoints": "^4.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
