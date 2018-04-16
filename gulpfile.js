@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sassGlob = require('gulp-sass-glob'),
-    browserSync = require('browser-sync'),
     concat = require('gulp-concat'),
     autoprefixer = require('gulp-autoprefixer'),
     rename = require('gulp-rename'),
@@ -11,14 +10,14 @@ var gulp = require('gulp'),
     newer = require('gulp-newer'),
     del = require('del'),
     cleanCSS = require('gulp-clean-css'),
-    uncss = require('gulp-uncss'),
     uglify = require('gulp-uglify'),
     useref = require('gulp-useref'),
     fileinclude = require('gulp-file-include'),
-    replace = require('gulp-replace');
+    replace = require('gulp-replace'),
+    browserSync = require('browser-sync').create();
 
 gulp.task('browser-sync', function() {
-  browserSync({
+  browserSync.init({
     server: {
       baseDir: 'src'
     },
@@ -31,7 +30,6 @@ gulp.task('styles', function() {
     .pipe(sassGlob())
     .pipe(plumber())
     .pipe(sass().on('error', sass.logError))
-    //.pipe(uncss({ html: '*.html' }))
     .pipe(autoprefixer({ browsers: ['last 15 versions', '> 1%', 'ie 9'], cascade: true }))
     .pipe(gulp.dest('src/css'))
     .pipe(browserSync.reload({stream: true}));
@@ -43,26 +41,13 @@ gulp.task('scripts', function() {
     ])
     .pipe(plumber())
     .pipe(concat('libs.min.js'))
-    //.pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('src/js'));
 });
-
-// File include task
-
-// gulp.task('html', function() {
-//   gulp.src(['src/html/*.html'])
-//     .pipe(fileinclude({
-//       prefix: '@@',
-//       basepath: '@file'
-//     }))
-//     .pipe(gulp.dest('src'))
-//     .pipe(browserSync.reload({stream: true}));
-// });
 
 gulp.task('watch', ['styles', 'scripts', 'browser-sync'], function() {
   gulp.watch('src/sass/**/*.+(sass|scss)', ['styles']);
   gulp.watch('src/*.html', browserSync.reload);
-  // gulp.watch('src/**/*.html', ['html'], browserSync.reload); /* IF FILEINCLUDE */
   gulp.watch('src/js/**/*.js', browserSync.reload);
 });
 
@@ -99,9 +84,6 @@ gulp.task('build', ['clean', 'styles', 'scripts', 'images', 'fonts', 'assets'], 
   gulp.src([
     'src/css/main.css'
     ])
-  //.pipe(uncss({ html: '*.html' }))
-  // .pipe(replace('url("../fonts/', 'url("fonts/')) /* IF WORDPRESS */
-  // .pipe(replace('url(../img/', 'url(img/')) /* IF WORDPRESS */
   .pipe(cleanCSS({compatibility: 'ie9'}))
   .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest('build/css'));
