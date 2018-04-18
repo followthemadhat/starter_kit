@@ -1,6 +1,6 @@
 {
-  "name": "Project",
-  "description": "Project Description",
+  "name": "project",
+  "description": "project description",
   "main": "bower.json",
   "private": true,
   "ignore": [
