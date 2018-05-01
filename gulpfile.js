@@ -59,13 +59,7 @@ gulp.task('images', function() {
   return gulp.src('src/img/**/*')
     //.pipe(newer('build/img'))
     .pipe(plumber())
-    .pipe(imagemin({
-      interlaced: true,
-      progressive: true,
-      optimizationLevel: 5,
-      svgoPlugins: [{removeViewBox: false}],
-      use: [pngquant()]
-    }))
+    .pipe(imagemin())
     .pipe(gulp.dest('build/img'));
 });
 
