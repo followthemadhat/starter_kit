@@ -9,8 +9,9 @@ export default function () {
   const {
     $wrapperEl, size: swiperSize, rtlTranslate: rtl, wrongRTL,
   } = swiper;
-  const slides = $wrapperEl.children(`.${swiper.params.slideClass}`);
   const isVirtual = swiper.virtual && params.virtual.enabled;
+  const previousSlidesLength = isVirtual ? swiper.virtual.slides.length : swiper.slides.length;
+  const slides = $wrapperEl.children(`.${swiper.params.slideClass}`);
   const slidesLength = isVirtual ? swiper.virtual.slides.length : slides.length;
   let snapGrid = [];
   const slidesGrid = [];
@@ -26,7 +27,6 @@ export default function () {
     offsetAfter = params.slidesOffsetAfter.call(swiper);
   }
 
-  const previousSlidesLength = slidesLength;
   const previousSnapGridLength = swiper.snapGrid.length;
   const previousSlidesGridLength = swiper.snapGrid.length;
 
@@ -107,6 +107,14 @@ export default function () {
 
     if (params.slidesPerView === 'auto') {
       const slideStyles = window.getComputedStyle(slide[0], null);
+      const currentTransform = slide[0].style.transform;
+      const currentWebKitTransform = slide[0].style.webkitTransform;
+      if (currentTransform) {
+        slide[0].style.transform = 'none';
+      }
+      if (currentWebKitTransform) {
+        slide[0].style.webkitTransform = 'none';
+      }
       if (swiper.isHorizontal()) {
         slideSize = slide[0].getBoundingClientRect().width +
           parseFloat(slideStyles.getPropertyValue('margin-left')) +
@@ -115,6 +123,12 @@ export default function () {
         slideSize = slide[0].getBoundingClientRect().height +
           parseFloat(slideStyles.getPropertyValue('margin-top')) +
           parseFloat(slideStyles.getPropertyValue('margin-bottom'));
+      }
+      if (currentTransform) {
+        slide[0].style.transform = currentTransform;
+      }
+      if (currentWebKitTransform) {
+        slide[0].style.webkitTransform = currentWebKitTransform;
       }
       if (params.roundLengths) slideSize = Math.floor(slideSize);
     } else {
