@@ -21,7 +21,8 @@ gulp.task('browser-sync', function() {
     server: {
       baseDir: 'src'
     },
-    notify: false
+    notify: false,
+    open: false
   });
 });
 
@@ -84,7 +85,7 @@ gulp.task('build', ['clean', 'styles', 'scripts', 'images', 'fonts', 'assets'], 
 
   gulp.src([
     'src/js/libs.min.js',
-    'src/js/common.js'
+    'src/js/main.js'
     ])
   .pipe(concat('main.min.js'))
   .pipe(uglify())
