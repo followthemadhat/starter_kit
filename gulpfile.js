@@ -30,7 +30,7 @@ gulp.task('styles', function() {
   return gulp.src('src/sass/main.scss')
     .pipe(sassGlob())
     .pipe(plumber())
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(autoprefixer({ browsers: ['last 15 versions', '> 1%', 'ie 9'], cascade: true }))
     .pipe(gulp.dest('src/css'))
     .pipe(browserSync.reload({stream: true}));
