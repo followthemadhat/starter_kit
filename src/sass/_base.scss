@@ -1,9 +1,11 @@
 /* General Project Styles */
 
-* {
+html {
   box-sizing: border-box;
 }
-
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 body {
   position: relative;
   display: block;
