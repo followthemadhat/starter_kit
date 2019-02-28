@@ -1,9 +1,10 @@
+@import "libs";
 @import "vars";
 @import "mixins";
-@import "fonts";
-@import "libs";
-@import "base";
 @import "helpers";
+@import "fonts";
+@import "base";
+@import "typography";
 
 @import "modules/*";
 @import "pages/*";

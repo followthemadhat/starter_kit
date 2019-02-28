@@ -31,7 +31,7 @@ gulp.task('styles', function() {
     .pipe(sassGlob())
     .pipe(plumber())
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-    .pipe(autoprefixer({ browsers: ['last 15 versions', '> 1%', 'ie 9'], cascade: true }))
+    .pipe(autoprefixer({ browsers: ['last 10 versions', '> 1%', 'ie 10'], cascade: true }))
     .pipe(gulp.dest('src/css'))
     .pipe(browserSync.reload({stream: true}));
 });
@@ -42,7 +42,6 @@ gulp.task('scripts', function() {
     ])
     .pipe(plumber())
     .pipe(concat('libs.min.js'))
-    // .pipe(uglify())
     .pipe(gulp.dest('src/js'));
 });
 
@@ -79,16 +78,14 @@ gulp.task('build', ['clean', 'styles', 'scripts', 'images', 'fonts', 'assets'], 
   gulp.src([
     'src/css/main.css'
     ])
-  .pipe(cleanCSS({compatibility: 'ie9'}))
-  .pipe(rename({suffix: '.min'}))
+  // .pipe(cleanCSS({compatibility: 'ie10'}))
+  // .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest('build/css'));
 
   gulp.src([
     'src/js/libs.min.js',
     'src/js/main.js'
     ])
-  .pipe(concat('main.min.js'))
-  .pipe(uglify())
   .pipe(gulp.dest('build/js'));
 
   gulp.src('src/*.html')

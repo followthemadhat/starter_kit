@@ -3,9 +3,11 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
 body {
   position: relative;
   display: block;
@@ -23,15 +25,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-ul, li {
+ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-img {
-  align-self: center;
+li {
+  list-style-type: inherit;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+
+  align-self: center;}
 
 a {
   color: inherit;
