@@ -45,9 +45,9 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('src/js'));
 });
 
-gulp.task('watch', ['styles', 'scripts', 'browser-sync'], function() {
+gulp.task('watch', ['fileinclude', 'styles', 'scripts', 'browser-sync'], function() {
   gulp.watch('src/sass/**/*.+(sass|scss)', ['styles']);
-  gulp.watch('src/*.html', browserSync.reload);
+  gulp.watch('src/html/**/*.html', ['fileinclude', browserSync.reload]);
   gulp.watch('src/js/**/*.js', browserSync.reload);
 });
 
@@ -73,7 +73,16 @@ gulp.task('assets', function() {
     .pipe(gulp.dest('build/assets/'));
 });
 
-gulp.task('build', ['clean', 'styles', 'scripts', 'images', 'fonts', 'assets'], function() {
+gulp.task('fileinclude', function() {
+  gulp.src(['src/html/*.html'])
+  .pipe(fileinclude({
+    prefix: '@@',
+    basepath: '@file'
+  }))
+  .pipe(gulp.dest('src/'));
+});
+
+gulp.task('build', ['clean', 'fileinclude', 'styles', 'scripts', 'images', 'fonts', 'assets'], function() {
 
   gulp.src([
     'src/css/main.css'
