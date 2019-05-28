@@ -45,7 +45,7 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('src/js'));
 });
 
-gulp.task('watch', ['fileinclude', 'styles', 'scripts', 'browser-sync'], function() {
+gulp.task('watch', ['styles', 'scripts', 'browser-sync'], function() {
   gulp.watch('src/sass/**/*.+(sass|scss)', ['styles']);
   gulp.watch('src/html/**/*.html', ['fileinclude', browserSync.reload]);
   gulp.watch('src/js/**/*.js', browserSync.reload);
