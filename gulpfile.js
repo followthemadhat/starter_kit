@@ -1,3 +1,12 @@
+var build = 'single'; //single or multiple
+var tasks;
+
+if (build == 'single') {
+  tasks = ['clean', 'styles', 'scripts', 'images', 'fonts', 'assets'];
+} else if (build == 'multiple') {
+  tasks = ['clean', 'fileinclude', 'styles', 'scripts', 'images', 'fonts', 'assets'];
+}
+
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sassGlob = require('gulp-sass-glob'),
@@ -47,8 +56,12 @@ gulp.task('scripts', function() {
 
 gulp.task('watch', ['styles', 'scripts', 'browser-sync'], function() {
   gulp.watch('src/sass/**/*.+(sass|scss)', ['styles']);
-  gulp.watch('src/html/inc/*.html', ['fileinclude']);
-  gulp.watch('src/html/**/*.html', browserSync.reload);
+  if (build == 'multiple') {
+    gulp.watch('src/html/**/*.html', ['fileinclude']);
+    gulp.watch('src/html/**/*.html', browserSync.reload);
+  } else if (build == 'single') {
+    gulp.watch('src/*.html', browserSync.reload);
+  }
   gulp.watch('src/js/**/*.js', browserSync.reload);
 });
 
@@ -83,7 +96,7 @@ gulp.task('fileinclude', function() {
   .pipe(gulp.dest('src/'));
 });
 
-gulp.task('build', ['clean', 'fileinclude', 'styles', 'scripts', 'images', 'fonts', 'assets'], function() {
+gulp.task('build', tasks, function() {
 
   gulp.src([
     'src/css/main.css'
